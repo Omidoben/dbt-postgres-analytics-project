@@ -11,11 +11,13 @@ It follows common analytics engineering best practices, including:
 - staging, intermediate, and mart layers
 
 - tests and seeds
+  
+- snapshots and macros
 
 - version-controlled transformations
 
 ### Project Structure
-.
+```
 ├── analyses/        # Ad-hoc analysis queries
 ├── macros/          # Reusable dbt macros
 ├── models/
@@ -27,18 +29,18 @@ It follows common analytics engineering best practices, including:
 ├── tests/           # Generic and custom tests
 ├── dbt_project.yml  # dbt project configuration
 └── README.md
-
+```
 ### Data Layers
 
 **Landing (outside dbt)**
 
-Raw data loaded into PostgreSQL under the l1_landing schema.
+- Raw data loaded into PostgreSQL under the l1_landing schema.
 
 **Staging layer**
-Standardized column names, data types, and basic cleaning.
+- Standardized column names, data types, and basic cleaning.
 
 **Intermediate layer**
-Business logic and transformations that combine multiple sources.
+- Business logic and transformations that combine multiple sources.
 
 **Mart layer**
-Final fact and dimension tables designed for analytics and reporting.
+- Final fact and dimension tables designed for analytics and reporting.
