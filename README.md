@@ -1,15 +1,15 @@
-Welcome to your new dbt project!
+dbt Analytics Project (PostgreSQL)
+### Overview
 
-### Using the starter project
+This project demonstrates how to use dbt (data build tool) to transform raw operational data into analytics-ready tables using a layered modeling approach.
+The project is developed locally using dbt Core, PostgreSQL, and VS Code.
 
-Try running the following commands:
-- dbt run
-- dbt test
+It follows common analytics engineering best practices, including:
 
+- source definitions
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+- staging, intermediate, and mart layers
+
+- tests and seeds
+
+- version-controlled transformations
