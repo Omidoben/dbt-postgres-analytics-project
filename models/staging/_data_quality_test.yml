@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: customer_stg
+    description: Staged customer data from order management system (OMS), with minot row level transformations.
+    config:
+      materialized: view
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: email
+        description: Customer's primary email address for promotions and offers.
+        tests:
+          - string_not_empty
+  - name: orderitems_stg
+    description: Staged order items data from order management system (OMS), with minor row level transformations.
+    config:
+      materialized: view
+    columns:
+      - name: order_item_id
+        description: Integer representing number of items picked by one customer, can range from 1-10 for a single customer.
+        tests:
+          - not_null
+  - name: orders_stg
+    description: Staged orderS data from order management system (OMS), with minor row level transformations.
+    config:
+      materialized: view
+    columns:
+      - name: order_id 
+        description: Primary key column for the orders table.
+        tests:
+          - unique
+          - not_null
+      - name: status_description
+        description: "{{ doc('status_description') }}"
+        tests:
+          - accepted_values:
+              values:
+                - Completed
+                - In Progress
+                - Cancelled
+      - name: order_id
+        tests:
+          - relationships:
+              to: ref('orderitems_stg')
+              field: order_id

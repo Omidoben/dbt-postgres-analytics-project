@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: raw
+    database: dbt_learning
+    schema: l1_landing
+    tables:
+      - name: cust
+        identifier: customers 
+        description: The customers table from order management system (OMS)
+        loaded_at_field: _etl_loaded_at
+        freshness:
+          warn_after: {count: 10, period: minute}
+          error_after: {count: 1, period: hour}
+      - name: ordr
+        identifier: orders
+        description: The orders table from the order management system (OMS)
+        loaded_at_field: _etl_loaded_at
+        freshness:
+          warn_after: {count: 10, period: minute}
+          error_after: {count: 1, period: hour}
+      - name: ordritms
+        identifier: orderitems
+        description: The order itema data from OMS
+        loaded_at_field: _etl_loaded_at
+        freshness:
+          warn_after: {count: 10, period: minute}
+          error_after: {count: 1, period: hour}
