@@ -16,6 +16,8 @@ It follows common analytics engineering best practices, including:
 
 - version-controlled transformations
 
+- documentation
+
 ### Project Structure
 ```
 ├── analyses/        # Ad-hoc analysis queries
@@ -44,3 +46,13 @@ It follows common analytics engineering best practices, including:
 
 **Mart layer**
 - Final fact and dimension tables designed for analytics and reporting.
+
+### Documentation
+
+This project uses dbt's built-in documentation features.  
+Model, column, and source documentation can be generated locally using:
+
+```bash
+dbt docs generate
+dbt docs serve
+
